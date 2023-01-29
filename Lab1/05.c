@@ -76,22 +76,22 @@ int main()
         {
             if (matrix[i][j] == -1)
             {
-                printf("__\t");
+                printf(" - ");
             }
             else if (matrix[i][j] == -2)
             {
-                printf("|\t");
+                printf(" | ");
             }
             else if (matrix[i][j] == 0)
             {
-                printf("\t");
+                printf("   ");
             }
             else
             {
-                printf("%d\t", matrix[i][j]);
+                printf("%3d", matrix[i][j]);
             }
         }
-        printf("\n\n");
+        printf("\n");
     }
 
     return 0;
