@@ -72,7 +72,10 @@ int main()
         {
 
             r++;
-            sfreq[s[r] - 'a']++;
+            if (r < n)
+            {
+                sfreq[s[r] - 'a']++;
+            }
         }
     }
 
