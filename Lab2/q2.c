@@ -167,8 +167,8 @@ int main()
     Node *head2 = readList();
     Node *merged = mergeLists(head1, head2);
     printList(merged);
-    // freeList(head1);
-    // freeList(head2);
-    // freeList(merged);
+    freeList(head1);
+    freeList(head2);
+    freeList(merged);
     return 0;
 }
