@@ -84,8 +84,58 @@ void freeList(Node *head)
     }
 }
 // Function definition goes here
+
+int size(Node *head)
+{
+    if (head == NULL)
+    {
+        return 0;
+    }
+
+    return 1 + size(head->next);
+}
+
 Node *sortList(Node *head)
 {
+    int n = size(head);
+    if (n <= 1)
+    {
+        return head;
+    }
+    for (int i = 0; i < n - 1; i++)
+    {
+        Node *prev = NULL;
+        Node *curr = head;
+        Node *next = head->next;
+        while (next != NULL)
+        {
+            if (curr->data > next->data)
+            {
+                if (curr == head)
+                {
+                    curr->next = next->next;
+                    next->next = curr;
+                    head = next;
+                }
+                else
+                {
+                    curr->next = next->next;
+                    next->next = curr;
+                    prev->next = next;
+                }
+
+                Node *temp = next;
+                next = curr;
+                curr = temp;
+            }
+
+            next = next->next;
+            prev = curr;
+            curr = curr->next;
+        }
+    }
+
+    return head;
 }
 
 int main()
@@ -93,7 +143,6 @@ int main()
     Node *head = readList();
     Node *sorted = sortList(head);
     printList(sorted);
-    freeList(head);
     freeList(sorted);
 
     return 0;
