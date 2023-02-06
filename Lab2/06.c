@@ -87,19 +87,29 @@ void freeList(Node *head)
 
 Node *rearrangeList(Node *head)
 {
-    if (head == NULL)
+    if ((head == NULL) || (head->next == NULL))
     {
         return head;
     }
-    Node *CSE = head->next;
-    Node *curr = head;
-    int parity = 1;
-    while (curr != NULL)
+
+    Node *odd = head;
+    Node *even = head->next;
+
+    Node *evenHead = even;
+
+    while ((odd->next != NULL) && (odd->next->next != NULL))
     {
-        if (parity == 1)
-        {
-        }
+
+        odd->next = odd->next->next;
+        odd = odd->next;
+
+        even->next = even->next->next;
+        even = even->next;
     }
+
+    odd->next = evenHead;
+
+    return head;
 }
 
 int main()
@@ -107,7 +117,6 @@ int main()
     Node *head = readList();
     Node *newList = rearrangeList(head);
     printList(newList);
-    freeList(head);
     freeList(newList);
 
     return 0;
