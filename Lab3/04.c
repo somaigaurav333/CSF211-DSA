@@ -59,11 +59,11 @@ DLL *readDLL()
 
     DLL *dll = createDLL();
     long n;
-    scanf("%d", &n);
+    scanf("%ld", &n);
     for (long i = 0; i < n; i++)
     {
         long val;
-        scanf("%d", &val);
+        scanf("%ld", &val);
         addNode(dll, val);
     }
 
@@ -101,10 +101,10 @@ void maxTeamStrength(DLL *dll)
         }
     }
 
-    prlongf("%d %d\n", lcount, rcount);
+    printf("%ld %ld\n", lcount, rcount);
 }
 
-long main()
+int main()
 {
     DLL *dll1 = readDLL();
     maxTeamStrength(dll1);
