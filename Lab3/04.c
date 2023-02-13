@@ -4,7 +4,7 @@
 
 struct Node
 {
-    int val;
+    long val;
     struct Node *next;
     struct Node *prev;
 };
@@ -19,7 +19,7 @@ struct DLL
 
 typedef struct DLL DLL;
 
-Node *createNode(int val)
+Node *createNode(long val)
 {
     Node *newNode = (Node *)malloc(sizeof(Node));
     newNode->val = val;
@@ -36,7 +36,7 @@ DLL *createDLL()
     return dll;
 }
 
-Node *addNode(DLL *dll, int val)
+Node *addNode(DLL *dll, long val)
 {
     Node *newNode = createNode(val);
     if (dll->head == NULL)
@@ -58,11 +58,11 @@ DLL *readDLL()
 {
 
     DLL *dll = createDLL();
-    int n;
+    long n;
     scanf("%d", &n);
-    for (int i = 0; i < n; i++)
+    for (long i = 0; i < n; i++)
     {
-        int val;
+        long val;
         scanf("%d", &val);
         addNode(dll, val);
     }
@@ -75,9 +75,9 @@ void maxTeamStrength(DLL *dll)
 
     Node *l = dll->head;
     Node *r = dll->tail;
-    int lstrength = 0, rstrength = 0;
-    int lcount = 0, rcount = 0;
-    int currlcount = 0, currrcount = 0;
+    long lstrength = 0, rstrength = 0;
+    long lcount = 0, rcount = 0;
+    long currlcount = 0, currrcount = 0;
 
     while (l != (r->next))
     {
@@ -101,10 +101,10 @@ void maxTeamStrength(DLL *dll)
         }
     }
 
-    printf("%d %d\n", lcount, rcount);
+    prlongf("%d %d\n", lcount, rcount);
 }
 
-int main()
+long main()
 {
     DLL *dll1 = readDLL();
     maxTeamStrength(dll1);
