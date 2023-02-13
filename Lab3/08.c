@@ -6,10 +6,9 @@ int main()
 
     ll n;
     scanf("%lld", &n);
-    ll l = 1, r = n;
+    ll l = 0, r = n;
     ll mid;
-    ll ans = -1;
-    while (l <= r)
+    while (l < r)
     {
         mid = (r + l + 1) / 2;
         if (mid > 1e9)
@@ -21,13 +20,13 @@ int main()
         ll square = mid * mid;
         if (square == n)
         {
-            ans = mid;
+            l = mid;
             break;
         }
         else if (square < n)
         {
-            ans = mid;
-            l = mid + 1;
+
+            l = mid;
         }
         else
         {
@@ -35,7 +34,7 @@ int main()
         }
     }
 
-    printf("%lld\n", ans);
+    printf("%lld\n", l);
 
     return 0;
 }
