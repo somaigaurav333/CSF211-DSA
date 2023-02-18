@@ -45,5 +45,5 @@ int main()
         maxGcd = gcd(maxGcd, arr[i]);
     }
 
-    printf("%d\n", maxGcd);
+    printf("%d  \n", maxGcd);
 }
