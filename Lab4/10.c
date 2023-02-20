@@ -1,6 +1,17 @@
 #include <stdio.h>
+#define ll long long
 
-void merge(int arr[], int l, int mid, int r)
+ll mod(ll x)
+{
+    if (x < 0)
+    {
+        return -x;
+    }
+
+    return x;
+}
+
+void merge(ll arr[], int l, int mid, int r)
 {
     int temparr[r - l + 1];
     int k = 0;
@@ -41,7 +52,7 @@ void merge(int arr[], int l, int mid, int r)
     }
 }
 
-void mergeSort(int arr[], int l, int r)
+void mergeSort(ll arr[], int l, int r)
 {
 
     if (r <= l)
@@ -60,24 +71,19 @@ int main()
 
     int n;
     scanf("%d", &n);
-    int arr[n];
+    ll arr[n];
     for (int i = 0; i < n; i++)
     {
-        scanf("%d", &arr[i]);
+        scanf("%lld", &arr[i]);
     }
 
     mergeSort(arr, 0, n - 1);
-
-        int i = n;
-    for (; i >= 1; i--)
+    ll median = arr[n / 2];
+    ll ans = 0;
+    for (int i = 0; i < n; i++)
     {
-        if ((arr[n - i] >= i) && (arr[n - i - 1] <= i))
-        {
-            break;
-        }
+        ans += mod(arr[i] - median);
     }
 
-    printf("%d\n", i);
-
-    return 0;
+    printf("%lld\n", ans);
 }
