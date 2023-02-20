@@ -68,7 +68,7 @@ int main()
 
     mergeSort(arr, 0, n - 1);
 
-        int i = n;
+    int i = n;
     for (; i >= 1; i--)
     {
         if ((arr[n - i] >= i) && (arr[n - i - 1] <= i))
