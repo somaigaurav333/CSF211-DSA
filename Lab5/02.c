@@ -1,6 +1,7 @@
 #include <stdio.h>
+#define ll long long
 
-int survivor(int n, int lefttoright)
+ll survivor(ll n, int lefttoright)
 {
 
     if (n == 1)
@@ -24,9 +25,9 @@ int survivor(int n, int lefttoright)
 int main()
 {
 
-    int n;
-    scanf("%d", &n);
-    printf("%d\n", survivor(n, 1));
+    ll n;
+    scanf("%lld", &n);
+    printf("%lld\n", survivor(n, 1));
 
     return 0;
 }
