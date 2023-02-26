@@ -6,22 +6,44 @@ int main()
 
     ll n, k;
     scanf("%lld %lld", &n, &k);
-    ll odds = 0;
+    int arr[n];
     for (int i = 0; i < n; i++)
     {
-        ll x;
-        scanf("%lld", &x);
-        odds += (x & 1);
+        scanf("%d", &arr[i]);
     }
 
-    if (odds < k)
+    int i = 0, j = 0;
+    ll ans = 0;
+    ll odds = (arr[0] % 2);
+    while (j < n)
     {
-        printf("0\n");
+        if (odds == k)
+        {
+            ans++;
+            j++;
+            if (j == n)
+            {
+                break;
+            }
+            odds += (arr[j] % 2);
+        }
+        else if (odds > k)
+        {
+            odds -= (arr[i] % 2);
+            i++;
+        }
+        else
+        {
+            j++;
+            if (j == n)
+            {
+                break;
+            }
+            odds += (arr[j] % 2);
+        }
     }
-    else
-    {
-        printf("%lld\n", odds - k + 1);
-    }
+
+    printf("%lld\n", ans);
 
     return 0;
 }
