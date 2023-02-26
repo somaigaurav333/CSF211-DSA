@@ -25,7 +25,7 @@ int count(int n, int i, int open, int close)
 void printSequences(int n, int i, int open, int close, char sequence[])
 {
 
-    if ((open + close) == n)
+    if (i == n)
     {
         printf("%s\n", sequence);
     }
