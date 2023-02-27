@@ -20,12 +20,21 @@ int main()
         if (odds == k)
         {
             ans++;
-            j++;
-            if (j == n)
+            if (i == (n - 1))
             {
                 break;
             }
-            odds += (arr[j] % 2);
+
+            if ((j == n - 1) || (arr[j + 1] % 2) == 1)
+            {
+                odds -= (arr[i] % 2);
+                i++;
+            }
+            else
+            {
+                j++;
+                odds += (arr[j] % 2);
+            }
         }
         else if (odds > k)
         {
