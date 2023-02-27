@@ -7,49 +7,52 @@ int main()
     ll n, k;
     scanf("%lld %lld", &n, &k);
     int arr[n];
+    int numodds = 0;
     for (int i = 0; i < n; i++)
     {
         scanf("%d", &arr[i]);
+        if (arr[i] & 1)
+        {
+            numodds++;
+        }
     }
 
-    int i = 0, j = 0;
     ll ans = 0;
-    ll odds = (arr[0] % 2);
-    while (j < n)
-    {
-        if (odds == k)
-        {
-            ans++;
-            if (i == (n - 1))
-            {
-                break;
-            }
 
-            if ((j == n - 1) || (arr[j + 1] % 2) == 1)
-            {
-                odds -= (arr[i] % 2);
-                i++;
-            }
-            else
-            {
-                j++;
-                odds += (arr[j] % 2);
-            }
-        }
-        else if (odds > k)
+    int oddindex[numodds];
+    int ptr = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i] & 1)
         {
-            odds -= (arr[i] % 2);
-            i++;
+            oddindex[ptr++] = i;
+        }
+    }
+
+    for (int i = 0; i <= (numodds - k); i++)
+    {
+        int j = (i + k - 1);
+        ll startOptions = oddindex[i];
+        ll endOptions = -oddindex[j];
+        if (i == 0)
+        {
+            startOptions++;
         }
         else
         {
-            j++;
-            if (j == n)
-            {
-                break;
-            }
-            odds += (arr[j] % 2);
+            startOptions -= oddindex[i - 1];
         }
+
+        if (j == numodds - 1)
+        {
+            endOptions += n;
+        }
+        else
+        {
+            endOptions += oddindex[j + 1];
+        }
+
+        ans += (startOptions * endOptions);
     }
 
     printf("%lld\n", ans);
