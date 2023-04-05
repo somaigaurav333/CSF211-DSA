@@ -5,7 +5,17 @@ using namespace std;
 
 /*
 Note that double has a precision of approx 15 digits, so most of the cases will work, but if the slope of lines has more
-than 15 digits, then the program can give errors
+than 15 digits, then the program can give errors.
+
+For example, this code will fail for testcase-
+
+3
+0 0
+7 22
+14 44
+
+You can clearly see that all three points are in a straight line, so there are 0 triangles, but the code will
+give answer as 1
 
 Refer to 07Precise for code that is completely precise
 */
