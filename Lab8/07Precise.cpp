@@ -36,26 +36,7 @@ int main()
 
     for (int i = 0; i < n; i++)
     {
-        class Fraction
-        {
-        public:
-            int num;
-            int den;
-            Fraction(int numerator, int denominator)
-            {
-                if (denominator == 0)
-                {
-                    num = 0;
-                    den = 0;
-                }
-                else
-                {
-                    int reduce = __gcd(numerator, denominator);
-                    num = numerator / reduce;
-                    den = denominator / reduce;
-                }
-            }
-        };
+
         for (int j = i + 1; j < n; j++)
         {
             int slopeNumerator = y[j] - y[i];
