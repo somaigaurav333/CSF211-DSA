@@ -29,7 +29,7 @@ int main()
 {
     int n, a_random_useless_variable_for_retards_who_code_in_C;
     cin >> n >> a_random_useless_variable_for_retards_who_code_in_C;
-    map<string, int> m;
+    map<string, int> m; // unordered_map is more efficient
     int ans = 0;
     while (n--)
     {
