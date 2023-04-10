@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+#define int long long
 
 pair<int, int> fraction(int numerator, int denominator)
 {
@@ -21,7 +22,7 @@ pair<int, int> fraction(int numerator, int denominator)
     return {num, den};
 }
 
-int main()
+int32_t main()
 {
 
     int n;
