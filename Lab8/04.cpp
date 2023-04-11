@@ -38,18 +38,15 @@ int main()
         }
         else if (query == 3)
         {
-            if (ones.empty())
+            auto ptr = ones.upper_bound(k);
+            if (ones.empty() || ptr == ones.begin())
             {
                 cout << -1 << " ";
             }
             else
             {
-                auto ptr = ones.upper_bound(k);
-                if (ptr != ones.begin())
-                {
-                    ptr--;
-                }
 
+                ptr--;
                 cout << ptr->first << "\n";
             }
         }
