@@ -1,0 +1,1 @@
+{"name":"Local: 07","url":"/home/gs/acads 2-2/DSA/Lab/Lab9/07.cpp","tests":[{"id":1681729080720,"input":"5\n3 30 34 5 9","output":"9534330"},{"id":1681729093596,"input":"4\n94 546 548 9","output":"994548546"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/gs/acads 2-2/DSA/Lab/Lab9/07.cpp","group":"local","local":true}
