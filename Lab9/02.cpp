@@ -39,11 +39,11 @@ int main()
 
     if (s[n - 1] == '|')
     {
-        rightCandle[n - 1] = 0;
+        rightCandle[n - 1] = n - 1;
     }
     else
     {
-        leftCandle[n - 1] = -1;
+        rightCandle[n - 1] = -1;
     }
 
     for (int i = n - 2; i >= 0; i--)
